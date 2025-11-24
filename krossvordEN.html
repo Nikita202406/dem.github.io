@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Year Crossword</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d42426;
+    }
+    .crossword-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .crossword-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 30px);
+      grid-gap: 1px;
+      background-color: #000;
+      padding: 5px;
+      border: 2px solid #000;
+    }
+    .cell {
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+      position: relative;
+    }
+    .cell.black {
+      background-color: #000;
+    }
+    .cell-number {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      font-size: 8px;
+      color: #000;
+    }
+    .clues {
+      max-width: 300px;
+    }
+    .clues h2 {
+      margin-bottom: 10px;
+    }
+    .clue-item {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎄 New Year Crossword Puzzle 🎄</h1>
+
+  <div class="crossword-container">
+    <div class="crossword-grid" id="grid"></div>
+
+    <div class="clues">
+      <h2>Across</h2>
+      <div class="clue-item">1. Jolly man in red suit who brings gifts</div>
+      <div class="clue-item">4. Animal that pulls Santa's sleigh</div>
+      <div class="clue-item">6. Made of snow, with a carrot nose</div>
+      <div class="clue-item">8. Something you open on Christmas morning</div>
+      <div class="clue-item">9. Evergreen decorated with lights and ornaments</div>
+
+      <h2>Down</h2>
+      <div class="clue-item">2. Santa's little helper</div>
+      <div class="clue-item">3. Jingle ___</div>
+      <div class="clue-item">5. Topper for the Christmas tree</div>
+      <div class="clue-item">7. Traditional Christmas song</div>
+      <div class="clue-item">10. Circular decoration hung on doors</div>
+    </div>
+  </div>
+
+  <script>
+    // 10x10 grid layout
+    const gridData = [
+      ['S', 'A', 'N', 'T', 'A', '',  '',  '',  '',  ''],
+      ['R', '',  '',  '',  'E', '',  'G', 'I', 'F', 'T'],
+      ['E', '',  'S', 'N', 'I', 'N', 'O', 'W', 'M', 'A'],
+      ['I', '',  'T', '',  'D', '',  '',  '',  '',  'N'],
+      ['N', 'E', 'A', 'R', '*', 'E', 'E', 'L', 'F', '*'],
+      ['D', '',  'R', '',  'E', '',  '',  '',  '',  ''],
+      ['E', '',  'R', 'E', 'I', 'N', 'D', 'E', 'E', 'R'],
+      ['E', '',  '*', '',  '',  '',  '',  '',  '',  ''],
+      ['R', '',  'C', 'A', 'R', 'O', 'L', '',  '',  ''],
+      ['*', 'W', 'R', 'E', 'A', 'T', 'H', '',  '',  '']
+    ];
+
+    // Position of clue numbers (row, col) => clue number
+    const clueNumbers = {
+      '0,0': 1,   // Santa
+      '1,0': 4,   // Reindeer (starts at 1,0 but continues down — actually placed horizontally starting at 6,2)
+      '2,2': 6,   // Snowman
+      '1,6': 8,   // Gift
+      '2,9': 9,   // Tree
+      '4,5': 2,   // Elf
+      '3,6': 3,   // Bell
+      '4,8': 5,   // Star
+      '8,2': 7,   // Carol
+      '9,1': 10   // Wreath
+    };
+
+    const grid = document.getElementById('grid');
+
+    for (let row = 0; row < 10; row++) {
+      for (let col = 0; col < 10; col++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        const value = gridData[row][col];
+        if (value === '' || value === '*') {
+          cell.classList.add('black');
+        } else {
+          cell.textContent = value;
+          const posKey = `${row},${col}`;
+          if (clueNumbers[posKey]) {
+            const numSpan = document.createElement('span');
+            numSpan.classList.add('cell-number');
+            numSpan.textContent = clueNumbers[posKey];
+            cell.appendChild(numSpan);
+          }
+        }
+        grid.appendChild(cell);
+      }
+    }
+  </script>
+</body>
+</html>
