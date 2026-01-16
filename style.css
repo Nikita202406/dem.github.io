@@ -69,8 +69,7 @@ p {
 }
 
 /* Цитаты */
-blockquote,
-p.quote {
+blockquote {
   font-family: 'Mountains of Christmas', cursive;
   color: #f8f8c4;
   background: rgba(0, 0, 0, 0.3);
@@ -103,25 +102,22 @@ a:hover {
     0 0 20px #ff6600;
 }
 
-/* Контейнер для центрирования контента */
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  border-radius: 15px;
-  border: 2px solid rgba(255, 215, 0, 0.6);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-  backdrop-filter: blur(3px);
-}
-
-/* Новогодние иконки */
-img[alt*="Новый год" i],
-img[alt*="ёлка" i] {
+/* Новогодние иконки — по alt="Иконка" из вашего HTML */
+img[alt="Иконка"] {
   filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
   max-width: 100px;
   display: block;
   margin: 10px auto;
+}
+
+/* Видео — базовое оформление */
+video {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 15px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Адаптация под мобильные устройства */
@@ -129,14 +125,16 @@ img[alt*="ёлка" i] {
   body {
     padding: 10px;
   }
-  main {
-    padding: 15px;
-    width: 95%;
-  }
   h2 {
     font-size: 1.5em;
   }
+  p, blockquote {
+    font-size: 1.1em;
+  }
   a {
     font-size: 1.1em;
+  }
+  video {
+    width: 95%;
   }
 }
