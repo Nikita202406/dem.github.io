@@ -1,8 +1,8 @@
 /* Основной стиль страницы */
 body {
-  background: linear-gradient(135deg, #8b0000 0%, #ff4500 30%, #ffd700 100%); /* Красный → оранжевый → золотой */
+  background: linear-gradient(135deg, #003366 0%, #0066cc 30%, #66ccff 100%); /* Тёмно-синий → синий → голубой */
   background-attachment: fixed;
-  color: #fff;
+  color: #ffffff;
   font-family: 'Mountains of Christmas', cursive, sans-serif;
   margin: 0;
   padding: 20px;
@@ -43,7 +43,7 @@ body::before {
   }
 }
 
-/* Заголовки (даты) — белые с неоновым эффектом */
+/* Заголовки (даты) — белые с неоновым эффектом в синих тонах */
 h2 {
   color: #ffffff;
   text-align: center;
@@ -51,10 +51,10 @@ h2 {
   margin: 25px 0 15px;
   text-shadow:
     0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 15px #ffcc00,
-    0 0 20px #ff9900,
-    0 0 25px #ff6600;
+    0 0 10px #a0d8ff,
+    0 0 15px #4db8ff,
+    0 0 20px #0099ff,
+    0 0 25px #0066cc;
   letter-spacing: 1px;
 }
 
@@ -64,47 +64,47 @@ p {
   line-height: 1.6;
   text-align: justify;
   margin-bottom: 1em;
-  color: #fff;
+  color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* Цитаты */
 blockquote {
   font-family: 'Mountains of Christmas', cursive;
-  color: #f8f8c4;
-  background: rgba(0, 0, 0, 0.3);
-  border-left: 5px solid #ffd700;
+  color: #e0f7ff;
+  background: rgba(0, 20, 40, 0.4);
+  border-left: 5px solid #66ccff;
   padding: 12px 16px;
   margin: 20px 0;
   border-radius: 0 10px 10px 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-/* Ссылки — белые с неоновым эффектом */
+/* Ссылки — белые с неоновым эффектом в голубых тонах */
 a {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   text-shadow:
     0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 15px #ffcc00,
-    0 0 20px #ff9900;
+    0 0 10px #a0d8ff,
+    0 0 15px #4db8ff,
+    0 0 20px #0099ff;
   transition: all 0.3s ease;
 }
 
 a:hover {
-  color: #ffd700;
+  color: #66ccff;
   text-shadow:
-    0 0 5px #ffd700,
-    0 0 10px #ffd700,
-    0 0 15px #ff9900,
-    0 0 20px #ff6600;
+    0 0 5px #66ccff,
+    0 0 10px #4db8ff,
+    0 0 15px #0099ff,
+    0 0 20px #0066cc;
 }
 
 /* Новогодние иконки — по alt="Иконка" из вашего HTML */
 img[alt="Иконка"] {
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+  filter: drop-shadow(0 0 8px rgba(102, 204, 255, 0.8));
   max-width: 100px;
   display: block;
   margin: 10px auto;
@@ -117,7 +117,7 @@ video {
   display: block;
   margin: 15px auto;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 50, 100, 0.5);
 }
 
 /* Адаптация под мобильные устройства */
