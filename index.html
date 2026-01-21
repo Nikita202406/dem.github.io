@@ -36,6 +36,84 @@
   <p>ФХНЗКЧ - Привет. Ключ шифрования Цезарь - 27</p> 
   <p>ЦЩЕБФ - Весна. Ключ шифрования Цезарь - 12</p> 
   <p>ЛЙВФОЛТБ - Вашкевич. Ключ шифрования Цезарь - 10</p> 
+
+  <h2>21 января, 2026</h2>
+h1>Простой пример алгоритма RSA</h1>
+
+  <div class="step">
+    <h2>1. Выбираем два простых числа <code>p</code> и <code>q</code></h2>
+    <p>Простые числа — это те, что делятся только на 1 и самих себя.</p>
+    <p>Возьмём самые маленькие:</p>
+    <p><code>p = 3</code><br><code>q = 5</code></p>
+  </div>
+
+  <div class="step">
+    <h2>2. Считаем <code>n = p × q</code></h2>
+    <p><code>n = 3 × 5 = 15</code></p>
+  </div>
+
+  <div class="step">
+    <h2>3. Считаем функцию Эйлера <code>φ(n) = (p−1)(q−1)</code></h2>
+    <p><code>φ(n) = (3−1) × (5−1) = 2 × 4 = 8</code></p>
+  </div>
+
+  <div class="step">
+    <h2>4. Выбираем открытую экспоненту <code>e</code></h2>
+    <p>Условия:</p>
+    <ul>
+      <li><code>1 &lt; e &lt; φ(n)</code></li>
+      <li><code>НОД(e, φ(n)) = 1</code> (взаимно простые)</li>
+    </ul>
+    <p>Попробуем <code>e = 3</code>:</p>
+    <p>НОД(3, 8) = 1 → <span class="success">✅ подходит!</span></p>
+    <p>(Можно было взять <code>e = 5</code> или <code>7</code> — тоже подошли бы.)</p>
+  </div>
+
+  <div class="step">
+    <h2>5. Находим закрытый ключ <code>d</code></h2>
+    <p>Нужно найти такое <code>d</code>, чтобы: <code>(e × d) mod φ(n) = 1</code></p>
+    <p>То есть: <code>(3 × d) mod 8 = 1</code></p>
+    <ul>
+      <li><code>d = 1</code> → 3 mod 8 = 3 → <span class="fail">❌</span></li>
+      <li><code>d = 2</code> → 6 mod 8 = 6 → <span class="fail">❌</span></li>
+      <li><code>d = 3</code> → 9 mod 8 = 1 → <span class="success">✅</span></li>
+    </ul>
+    <p>Значит, <code>d = 3</code></p>
+  </div>
+
+  <div class="step">
+    <h2>Ключи</h2>
+    <div class="highlight">
+      <p><strong>Открытый ключ:</strong> <code>(n, e) = (15, 3)</code> → им можно зашифровать</p>
+      <p><strong>Закрытый ключ:</strong> <code>(n, d) = (15, 3)</code> → им можно расшифровать</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <h2>Шифрование сообщения</h2>
+    <p>Пусть сообщение <code>m = 2</code> (например, «2» = «анализ готов»)</p>
+    <p>Условие: <code>m &lt; n</code> → <code>2 &lt; 15</code> → <span class="success">✅</span></p>
+    <p>Формула шифрования: <code>C = m<sup>e</sup> mod n</code></p>
+    <p><code>C = 2<sup>3</sup> mod 15 = 8 mod 15 = 8</code></p>
+    <p>→ <strong>Шифротекст C = 8</strong></p>
+  </div>
+
+  <div class="step">
+    <h2>Расшифровка сообщения</h2>
+    <p>Формула расшифровки: <code>M = C<sup>d</sup> mod n</code></p>
+    <p><code>M = 8<sup>3</sup> mod 15 = 512 mod 15 = 2</code></p>
+    <p>→ <strong>Исходное сообщение восстановлено!</strong> <span class="success">✅</span></p>
+  </div>
+
+  <div class="step">
+    <h2>В реальности</h2>
+    <p>В настоящих системах безопасности:</p>
+    <ul>
+      <li>Число <code>n</code> состоит из <strong>600+ десятичных цифр</strong> (или даже больше!)</li>
+      <li>Это делает факторизацию (нахождение <code>p</code> и <code>q</code> по <code>n</code>) практически невозможной для современных компьютеров</li>
+    </ul>
+  </div>
+  
     
   <p>Иконки:
     <a target="_blank" href="https://icons8.com/icon/Te05gF2gRJfm/christmas-gift">New Year</a> 
